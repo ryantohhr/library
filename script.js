@@ -58,7 +58,14 @@ function generateCard(book) {
     dltBtn.textContent = "Delete";
     dltBtn.classList.add("dlt");
     dltBtn.addEventListener('click', () => {
-        Library.splice(1, 1);
+        let search;
+        for (let [index, item] of Library.entries()) {
+            if (item.id === book.id) {
+                search = index;
+                break;
+            }
+        }
+        Library.splice(search, 1);
         const toRemove = document.getElementById(`${book.id}`);
         main.removeChild(toRemove);
     })
