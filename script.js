@@ -16,7 +16,7 @@ function displayBook(book) {
     const title = document.createElement("p");
     const author = document.createElement("div");
     const main = document.querySelector(".main");
-    console.log(Library);
+    console.log(book.title);
     title.textContent = book.title;
     author.textContent = book.author;
     card.appendChild(title);
@@ -25,7 +25,5 @@ function displayBook(book) {
 }
 
 function displayLibrary() {
-    for (book in Library) {
-        displayBook(book);
-    }
+    Library.forEach(displayBook);
 }
