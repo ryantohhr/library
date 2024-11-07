@@ -76,15 +76,52 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, 350px);
     gap: 30px;
-    grid-template-rows: repeat(auto-fit, 100px);
+    grid-template-rows: repeat(auto-fit, 200px);
     padding: 35px 20px;
 }
 
-.main > div {
+.card {
     padding: 20px;
     background-color: #c2dedc;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
+.content .title {
+    font-size: 1rem;
+}
 
+.content .author {
+    font-size: 0.75rem;
+}
+
+.buttons {
+    padding-top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+.buttons button {
+    font-size: 0.75rem;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    color: white;
+    height: 30px;
+    width: 80px;
+}
+
+hr {
+    border: solid 0.05rem #b8b8b8;
+}
+
+.read {
+    background-color: #51c27c;
+}
+
+.dlt {
+    background-color: #e76b6b;
+}

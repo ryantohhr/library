@@ -12,15 +12,40 @@ function addBookToLibrary(title, author, read) {
 }
 
 function displayBook(book) {
-    const card = document.createElement("div");
-    const title = document.createElement("p");
-    const author = document.createElement("div");
     const main = document.querySelector(".main");
-    console.log(book.title);
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const hr = document.createElement("hr");
+
+    const contentDiv = document.createElement("div");
+    contentDiv.classList.add("content");
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("buttons");
+
+    const title = document.createElement("div");
+    title.classList.add("title");
     title.textContent = book.title;
-    author.textContent = book.author;
-    card.appendChild(title);
-    card.appendChild(author);
+
+    const author = document.createElement("div");
+    author.classList.add("author");
+    author.textContent = `by ${book.author}`;
+
+    const readBtn = document.createElement("button");
+    readBtn.textContent = book.read;
+    readBtn.classList.add("read");
+
+    const dltBtn = document.createElement("button");
+    dltBtn.textContent = "Delete";
+    dltBtn.classList.add("dlt");
+    
+    contentDiv.appendChild(title);
+    contentDiv.appendChild(author);
+    buttonDiv.appendChild(readBtn);
+    buttonDiv.appendChild(dltBtn);
+    card.appendChild(contentDiv);
+    card.appendChild(hr);
+    card.appendChild(buttonDiv);
     main.appendChild(card);
 }
 
