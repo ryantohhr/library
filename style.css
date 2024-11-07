@@ -74,13 +74,13 @@ body {
     box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
     background-color: #cee6f3;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
+    grid-template-columns: repeat(auto-fit, 350px);
     gap: 30px;
-    grid-template-rows: 100px;
+    grid-template-rows: repeat(auto-fit, 100px);
     padding: 35px 20px;
 }
 
-.card {
+.main > div {
     padding: 20px;
     background-color: #c2dedc;
     border-radius: 10px;
