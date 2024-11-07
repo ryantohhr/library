@@ -51,6 +51,7 @@ function generateCard(book) {
     readBtn.addEventListener('click', () => {
         book.toggleRead();
         readBtn.textContent = book.read;
+        updateProgress(book.read, progress);
     });
 
     const dltBtn = document.createElement("button");
@@ -87,5 +88,14 @@ function toggleRead(readStatus) {
     }
     else {
         return "Read";
+    }
+}
+
+function updateProgress(readStatus, progress) {
+    if (readStatus === "Read") {
+        progress.textContent = "Completed";
+    }
+    else {
+        progress.textContent = "In progress";
     }
 }
