@@ -1,9 +1,12 @@
 const Library = [];
 
+const main = document.querySelector(".main");
+
 function Book(title, author, read) {
     this.title = title,
     this.author = author,
     this.read = read
+    this.id = Library.length;
     this.toggleRead = function() {
         if (this.read == "Read") {
             this.read = "Not read";
@@ -20,7 +23,6 @@ function addBookToLibrary(title, author, read) {
 }
 
 function displayBook(book) {
-    const main = document.querySelector(".main");
     const card = generateCard(book);
     main.appendChild(card);
 }
@@ -28,6 +30,7 @@ function displayBook(book) {
 function generateCard(book) {
     const card = document.createElement("div");
     card.classList.add("card");
+    card.setAttribute("id", `${book.id}`);
 
     const contentDiv = document.createElement("div");
     contentDiv.classList.add("content");
@@ -53,6 +56,11 @@ function generateCard(book) {
     const dltBtn = document.createElement("button");
     dltBtn.textContent = "Delete";
     dltBtn.classList.add("dlt");
+    dltBtn.addEventListener('click', () => {
+        Library.splice(1, 1);
+        const toRemove = document.getElementById(`${book.id}`);
+        main.removeChild(toRemove);
+    })
 
     const progress = document.createElement("div");
     progress.textContent = "In progress";
