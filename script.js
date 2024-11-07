@@ -13,10 +13,13 @@ function addBookToLibrary(title, author, read) {
 
 function displayBook(book) {
     const main = document.querySelector(".main");
+    const card = generateCard(book);
+    main.appendChild(card);
+}
+
+function generateCard(book) {
     const card = document.createElement("div");
     card.classList.add("card");
-
-    const hr = document.createElement("hr");
 
     const contentDiv = document.createElement("div");
     contentDiv.classList.add("content");
@@ -38,15 +41,20 @@ function displayBook(book) {
     const dltBtn = document.createElement("button");
     dltBtn.textContent = "Delete";
     dltBtn.classList.add("dlt");
+
+    const progress = document.createElement("div");
+    progress.textContent = "In progress";
+    progress.classList.add("progress");
     
     contentDiv.appendChild(title);
     contentDiv.appendChild(author);
     buttonDiv.appendChild(readBtn);
     buttonDiv.appendChild(dltBtn);
     card.appendChild(contentDiv);
-    card.appendChild(hr);
     card.appendChild(buttonDiv);
-    main.appendChild(card);
+    card.appendChild(progress);
+
+    return card;
 }
 
 function displayLibrary() {
