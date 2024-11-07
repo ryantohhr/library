@@ -4,6 +4,14 @@ function Book(title, author, read) {
     this.title = title,
     this.author = author,
     this.read = read
+    this.toggleRead = function() {
+        if (this.read == "Read") {
+            this.read = "Not read";
+        }
+        else {
+            this.read = "Read";
+        }
+    }
 }
 
 function addBookToLibrary(title, author, read) {
@@ -37,6 +45,10 @@ function generateCard(book) {
     const readBtn = document.createElement("button");
     readBtn.textContent = book.read;
     readBtn.classList.add("read");
+    readBtn.addEventListener('click', () => {
+        book.toggleRead();
+        readBtn.textContent = book.read;
+    });
 
     const dltBtn = document.createElement("button");
     dltBtn.textContent = "Delete";
@@ -59,4 +71,13 @@ function generateCard(book) {
 
 function displayLibrary() {
     Library.forEach(displayBook);
+}
+
+function toggleRead(readStatus) {
+    if (readStatus == "Read") {
+        return "Not read";
+    }
+    else {
+        return "Read";
+    }
 }
