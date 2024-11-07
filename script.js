@@ -106,3 +106,13 @@ function updateProgress(readStatus, progress) {
         progress.textContent = "In progress";
     }
 }
+
+const addBookBtn = document.querySelector(".add");
+
+addBooksBtn.addEventListener('click', () => {
+    generateDialog();
+})
+
+function generateDialog() {
+    
+}
