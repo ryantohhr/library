@@ -136,3 +136,84 @@ body {
     left: 0;
     right: 0;
 }
+
+dialog {
+  box-shadow: 0 0 10px black;
+  border: solid 1px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70%;
+  width: 25%;
+  border-radius: 15px;
+  background-color: #c2dedc;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.top {
+  font-size: 2rem;
+  align-self: center;
+}
+
+.read-form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dialog-input {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  border-radius: 10px;
+  height: 2.5rem;
+  border: none;
+  background-color: white;
+  font-size: 1.25rem;
+  padding: 0 0.5rem;
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: white;
+}
+
+label {
+  font-size: 1.25rem;
+}
+
+.add-button {
+  align-self: center;
+}
+
+input[type="submit"] {
+  padding: 0.7rem 3rem;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  background-color: #97dab1;
+  border: none;
+}
