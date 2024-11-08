@@ -217,3 +217,17 @@ input[type="submit"] {
   background-color: #97dab1;
   border: none;
 }
+
+.close {
+  background-color: #c2dedc00;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.close svg {
+  height: 2rem;
+}

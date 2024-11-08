@@ -19,17 +19,20 @@
     </div>
     <div class="main">
     </div>
-    <dialog open>
+    <dialog>
+        <button class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+        </button>
         <form method="dialog">
             <div class="top">
                 Add new book
             </div>
             <div class="text-input">
                 <div class="dialog-input">
-                    <input type="text" name="title" placeholder="Title">
+                    <input type="text" class="titleInput" name="title" placeholder="Title">
                 </div>
                 <div class="dialog-input">
-                    <input type="text" name="author" placeholder="Author">
+                    <input type="text" class="authorInput" name="author" placeholder="Author">
                 </div>
             </div>
             <div class="read-form">

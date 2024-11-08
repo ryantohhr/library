@@ -71,7 +71,7 @@ function generateCard(book) {
     })
 
     const progress = document.createElement("div");
-    progress.textContent = "In progress";
+    updateProgress(book.read, progress);
     progress.classList.add("progress");
     
     contentDiv.appendChild(title);
@@ -107,12 +107,43 @@ function updateProgress(readStatus, progress) {
     }
 }
 
-const addBookBtn = document.querySelector(".add");
+const form = document.querySelector("form");
+const dialogBtn = document.querySelector(".add");
+const dialog = document.querySelector("dialog");
+const closeBtn = document.querySelector(".close");
+const addBookBtn = document.querySelector("input[type='submit']");
+const titleInput = document.querySelector(".titleInput");
+const authorInput = document.querySelector(".authorInput");
+const readInput = document.querySelector(".read-box");
 
-addBooksBtn.addEventListener('click', () => {
-    generateDialog();
+dialogBtn.addEventListener('click', () => {
+    dialog.show();
 })
 
-function generateDialog() {
-    
-}
+addBookBtn.addEventListener('click', () => {
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const read = handleRead(readInput.checked);
+    addBookToLibrary(title, author, read);
+    while (main.firstChild) {
+        main.removeChild(main.firstChild);
+    }
+    displayLibrary();
+    form.reset();
+})
+
+closeBtn.addEventListener('click', () => {
+    form.reset();
+    dialog.close();
+})
+
+function handleRead(value) {
+    if (value) {
+        return "Read";
+    }
+    else {
+        return "Not read";
+    }
+} 
+
+
