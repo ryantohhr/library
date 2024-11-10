@@ -2,12 +2,15 @@ const Library = [];
 
 const main = document.querySelector(".main");
 
-function Book(title, author, read) {
-    this.title = title,
-    this.author = author,
-    this.read = read
-    this.id = Library.length;
-    this.toggleRead = function() {
+class Book {
+    constructor(title, author, read) {
+        this.title = title,
+        this.author = author,
+        this.read = read
+        this.id = Library.length;
+    }
+    
+    toggleRead = function() {
         if (this.read == "Read") {
             this.read = "Not read";
         }
