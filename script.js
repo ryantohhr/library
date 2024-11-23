@@ -119,20 +119,45 @@ const titleInput = document.querySelector(".titleInput");
 const authorInput = document.querySelector(".authorInput");
 const readInput = document.querySelector(".read-box");
 
+if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity("Please enter a title.");
+}
+
+titleInput.addEventListener('input', () => {
+    if (!titleInput.validity.valueMissing) {
+        titleInput.setCustomValidity("");
+    }
+})
+
+if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity("Please enter an author.");
+}
+
+authorInput.addEventListener('input', () => {
+    if (!authorInput.validity.valueMissing) {
+        authorInput.setCustomValidity("");
+    }
+})
+
+
 dialogBtn.addEventListener('click', () => {
     dialog.show();
 })
 
 addBookBtn.addEventListener('click', () => {
-    const title = titleInput.value;
-    const author = authorInput.value;
-    const read = handleRead(readInput.checked);
-    addBookToLibrary(title, author, read);
-    while (main.firstChild) {
-        main.removeChild(main.firstChild);
+    if (!titleInput.validity.valueMissing && !authorInput.validity.valueMissing) {
+        const title = titleInput.value;
+        const author = authorInput.value;
+        const read = handleRead(readInput.checked);
+        addBookToLibrary(title, author, read);
+        while (main.firstChild) {
+            main.removeChild(main.firstChild);
+        }
+        displayLibrary();
+        form.reset();
+        dialog.close();
     }
-    displayLibrary();
-    form.reset();
+    
 })
 
 closeBtn.addEventListener('click', () => {
